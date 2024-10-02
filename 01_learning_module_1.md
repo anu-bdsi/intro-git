@@ -2,7 +2,7 @@
 
 ## Outline
 
-1. Introduction to Version Control - __be simple!!!__
+1. Introduction to Version Control 
     * What is version control?
     * Local vs. remote repositories 
 2. Installing Git and GitHub Setup
@@ -300,30 +300,34 @@ To update your local repository with the changes updated to GitHub or any remote
 
 You will see the above information saying the changes has been pulled. 
 
+# 5. Git Workflow 
 
+The git commands we have mentioned today can be summarised to a simple Git workflow. 
 
+![](figs/28_git_workflow.jfif)
 
+The diagram shows different stages of a Git workflow, and it can give you a clear understanding of each command and its corresponding stages. We haven't talked about `git checkout`, but we will include it in our next session. 
 
+# Key Takeaways
 
+In today's lesson, we have learned the very important part of using Git and GitHub. The knowledge we have covered today are those I used the most in my daily life. If you mostly work by yourself, today's content would be the most important to you as well. Here, I will outline the key takeaways again for your reference:
 
+* How to set up SSH keys both on your local device and on GitHub
+* Initialise a Git repository - `git init`
+* Add changes - `git add`
+* Check Git status - `git status`
+* Commit changes - `git commit`
+* Check commit history - `git log`
+* Add remote repositories - `git remote add`
+* Push local Git repo to remote - `git push`
+* Pull changes from remote repo to local - `git pull`
 
+# Q&A
 
+If you have any questions, please feel free to ask. Or you're always welcome to send an email to me at jiajia.li1@anu.edu.au 
 
+# Next Workshop Preview 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+* Handling merge conflicts
+* Branching and merging in collaborative environments 
+* Undoing changes
