@@ -260,13 +260,89 @@ __Green__ means added lines. Now, let's input the title as "Add Contact page" an
 
 ![](figs/46_pull_request.png)
 
-__Pull request__ now is available to others in your project to view, and available to project owner to view and make comments on your pull request, or the project owner can decide if they want to merge your pull request. Now, imagine yourself is the project owner, and you have reviewed this pull request submitted by one of your group member. There is no errors, and you are going to merge the pull request. Click __Merge pull request__.
+__Pull request__ now is available to others in your project to view, and available to project owner to view and make comments on your pull request, or the project owner can decide if they want to merge your pull request. Now, imagine yourself is the project owner, and you have reviewed this pull request submitted by one of your group member. There are no errors, and you are going to merge the pull request. Click __Merge pull request__.
 
 After successfully merging the pull request, GitHub will ask you if you want to delete the merged branch since now it has no use to the project. 
 
 ![](figs/47_delete.png)
 
 Let's delete the branch. Click __Delete branch__. 
+
+## Handling merge conflicts in GitHub 
+
+Merge conflicts can happen when you trying to merge two branches, two different changes happend in the same line of a file, resulting in a conflict. In this case, we need to decide which change to keep, and resolve the conflict manually. Below is a scenario where how things can happen resulting in a merge conflict. 
+
+__Let's assume two people are working on different branches:__
+* __One person on the `main` branch modified the `index.html` file.__
+* __Another person on the `about-page` branch made different modifications to the same section of `index.html`.__
+
+When trying to merge the `about-page` branch into `main`, a conflict will arise. Let's create the conflict first:
+
+1. Switch to branch `main`:
+
+```sh
+git checkout main
+```
+
+2. Modify `index.html` according to below:
+
+```html
+<h1>Welcome to the Collaborative Website!</h1>
+<p>This is the main branch version of the introduction.</p>
+```
+
+3. Commit the changes:
+
+```sh
+git add index.html
+git commit -m "Modify introduction in main branch"
+```
+
+4. Switch to the `about-page` branch and make different changes to `index.html`. 
+
+```sh
+git checkout about-page
+```
+
+Edit `index.html`:
+
+```html
+<h1>Welcome to the Collaborative Website!</h1>
+<p>This is the about-page branch version of the introduction.</p>
+```
+
+5. Commit the changes:
+
+```sh
+git add index.html
+git commit -m "Modify introduction in about-page branch"
+```
+
+6. Push both branches to GitHub:
+
+```sh
+git push origin about-page
+git checkout main
+git push origin main
+```
+
+7. Go to GitHub and navigate to your `collaborative-website` repository. 
+8. Switch to the branch `about-page`.
+9. Create a pull request to merge `about-page` to `main`.
+10. After creating pull request, open the pull request and click __Resolve conflicts__. 
+
+![](figs/48_resolve.png)
+
+11. Once you click __Resolve conflicts__, GitHub will show you a __conflict editor__ with the conflicting parts of the file marked. Like below:
+
+![](figs/49_conflict.png)
+
+12. Here, you can edit this file, and remove the lines you don't want and keep the lines you want. In this case, we remove __line 11, 12, 13 & 15__. The `<<<<<<< about-page`, `=======`, and `>>>>>>> main` need to be removed as well. After editing, click __Mark as resolved__. Then click __Commit merge__. 
+13. Now, in the active pull request, you will be able to merge the pull request. Click __Merge pull request__. Then you can delete branch as well. 
+
+## Best practices for branching and merging 
+
+
 
 
 
