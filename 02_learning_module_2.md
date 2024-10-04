@@ -338,17 +338,71 @@ git push origin main
 ![](figs/49_conflict.png)
 
 12. Here, you can edit this file, and remove the lines you don't want and keep the lines you want. In this case, we remove __line 11, 12, 13 & 15__. The `<<<<<<< about-page`, `=======`, and `>>>>>>> main` need to be removed as well. After editing, click __Mark as resolved__. Then click __Commit merge__. 
-13. Now, in the active pull request, you will be able to merge the pull request. Click __Merge pull request__. Then you can delete branch as well. 
+13. Now, in the active pull request, you will be able to merge the pull request. Click __Merge pull request__. Then you can delete the branch as well. 
+
+## Delete branches locally 
+
+When we merge branches on GitHub, it will ask us to delete the branch after merging. It is also a good practice to delete the branch locally to avoid future confusion. Once a branch is merged, it has no use in the future, and it is better we delete it. To delete a branch locally, we can run:
+
+```sh
+git branch -d <branch-name>
+```
+
+__Exercise:__ Now please check how many branches you have locally, and delete those you don't need anymore. 
 
 ## Best practices for branching and merging 
 
+### 1. Use descriptive branch names 
 
+* Choose clear, descriptive names making it easier for collaborators to understand what each branch is for. 
+* Common naming conventions include examples below. You can use `/` as a separator in your branch names. 
+    * __Features:__ `feature/add-user-authentication`
+    * __Bug fixes:__ `bugfix/fix-signup-error`
+    * __Hotfixes:__ `hotfix/critical-bugfix`
+    * __Chores/Refactoring:__ `chore/update-dependencies`
 
+### 2. Pull often
 
+* When you work on a Git project with others, it is a good practice to pull often, especially when you want to create a branch and start working on a problem. Because others in your group might push some changes to GitHub, either in the `main` branch or other branches. 
+* Everytime before you create a new branch, you should pull first. For example, you want to create a new branch called `hotfix/critical-bugfix` from the branch `main`, you should make sure the `main` branch is update to date on your local device. 
 
+```sh
+git checkout main
+git pull origin main 
+git checkout -b hotfix/critical-bugfix
+```
 
+### 3. Branch from the correct base
 
+Make sure you branch from the right place. If you are on `main` branch, when you create a new branch, this new branch copies the current status of `main`. Same, if you are on a different branch, such as `develop`, when you create a new branch, the new brach will copy the current status of `develop`. So make sure you always create new branch from the right place. 
 
+### 4. Keep branches small and focused 
 
+* Limit branches to a single feature or bug fix. For example, one branch for coding a function and one branch for fix a bug. This makes the review process simpler if you work with others and also reduces the risk of conflicts. If there were conflicts, the conflicts would be easire to solve as well. 
+* Avoid working on multiple features in a single branch. 
 
+### 5. Commit often, but meaningfully 
 
+* Make regular, small commits as you develop, but ensure each commit represents a meaningful piece of work. This makes it easier to track changes, roll back if necessary, and review. 
+* Each commit message should be clear and explain what has been changed.
+
+### 6. Use pull request to merge
+
+* It is suggested that everytime you trying to merge, use pull requests on GitHub to merge rather than merge locally, especially when you work with others. If you merge to `main` locally then push to GitHub, it might cause conflicts.
+* Pull requests allow reviews before merging. Reviews help main code quality, catch potential issues, and ensure that all team members are aware of changes. 
+
+# Key takeaways
+
+* Branching. List branches. Create branches. Switch branches. Delete branches. 
+* Merging. Merge locally. Merge on GitHub.
+* Pull request. 
+* Resolve merge conflicts. 
+* Best practices for branching and merging. 
+
+# Q & A 
+
+If you have any questions, please feel free to ask. Or you're always welcome to send an email to me at jiajia.li1@anu.edu.au 
+
+# Next workshop preview 
+
+You will be working with a group of students and collaborate on a project on GitHub, each of you will in charge of different development questions. 
