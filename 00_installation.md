@@ -1,8 +1,12 @@
 # Introduction
 
-This notebook will guide you how to install Git on your device. 
+This notebook will guide you how to install Git on your device, including Windows, MacOS, and WSL guidelines. It is highly recommended that you use Git in a terminal environment, such as the Terminal in your MacOS system or WSL (Windows Subsystem for Linux) in your Windows system.
 
-# Windows User Guidelines
+If you want to install WSL in your Windows laptop, please follow this [tutorial](https://documentation.ubuntu.com/wsl/en/latest/guides/install-ubuntu-wsl2/).
+
+If you don't have any experience with Linux, you can still use Git in your Windows system, please follow my tutorial for Windows user below. 
+
+# Windows User
 
 ### 1. Download Git 
 
@@ -49,8 +53,21 @@ This notebook will guide you how to install Git on your device.
 
 ![](figs/03_git_version.png)
 
-# MacOS User Guidelines
+# MacOS User
 
+* Check if you have Git installed. Open Terminal and type in `git --version`. If it returns you a version number, it means you have Git installed. If it returns "couldn't find Git", it means you don't have Git. 
 * Install [homebrew](https://brew.sh/) if you don't already have it.
 * Then, open __Terminal__, and run `brew install git`. 
 * Type `git --version` in __Terminal__ to verify. 
+
+# WSL User
+
+* Check if you have Git installed. Open Ubuntu WSL and type in `git --version`. If it returns you a version number, it means you have Git installed. If it returns "couldn't find Git", it means you don't have Git. 
+* Run the below commands:
+
+```
+sudo apt update
+sudo apt install git
+```
+
+* Run `git --version` to verify if Git is installed. 
